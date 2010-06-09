@@ -66,14 +66,14 @@ function hilbert_2d_to_1d(x, y, recursion, curve) {
 	   	retv = curve.c 
 		     + hilbert_2d_to_1d( x*2, (y - 0.5)*2
 							   , recursion - 1
-			                   , curve
+			                   , curve.mirror_x().rotate_cc()
 							   ) / 4;
 	}	
 	if (x >= 0.5 && x < 1.0 && y >= 0.5 && y < 1.0) {
 	   	retv = curve.d 
 		     + hilbert_2d_to_1d( (x - 0.5)*2, (y - 0.5)*2
 							   , recursion - 1
-			                   , curve.mirror_x().rotate_cc()
+			                   , curve
 							   ) / 4;
 	}
 	console.log(x, y, recursion, curve);	
