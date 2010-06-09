@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+                    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<title>foo</title>
+<head>
+    <script type="text/javascript" src="jquery-1.4.2.js"></script>
+    <script type="text/javascript" src="qunit.js"></script>
+    <link rel="stylesheet" href="reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="qunit.css" type="text/css" media="screen" />
+
+    <script type="text/javascript" src="hilbert.js"></script>
+	
+    <script type="text/javascript">
+    $(document).ready(function(){
+	
+module("battenburg");
+
+test("battenburgTest", function() {
+	matrix = new Battenburg(0, 1, 2, 3);
+	deepEqual(matrix.mirror_x(), new Battenburg(2, 3, 0, 1));
+	deepEqual(matrix.mirror_x().mirror_x(), matrix);
+	deepEqual(matrix.rotate_c(), new Battenburg(2, 0, 3, 1));
+	deepEqual(matrix.rotate_cc(), new Battenburg(1, 3, 0, 2));
+	deepEqual(matrix.rotate_c().rotate_c().rotate_c().rotate_c(), matrix);
+	deepEqual(matrix.rotate_cc().rotate_cc().rotate_cc().rotate_cc(), matrix);
+}); 
+
+test("hilbert_2d_to_1dTest", function() {
+	deepEqual(hilbert_2d_to_1d(0.0, 0.0, 1), 0.0);
+	deepEqual(hilbert_2d_to_1d(0.5, 0.0, 1), 0.25);
+	deepEqual(hilbert_2d_to_1d(0.5, 0.5, 1), 0.5);
+	deepEqual(hilbert_2d_to_1d(0.0, 0.5, 1), 0.75);
+	
+	deepEqual(hilbert_2d_to_1d(0.0, 0.0, 2), 0.0);
+	deepEqual(hilbert_2d_to_1d(0.5, 0.0, 2), 0.25);
+	deepEqual(hilbert_2d_to_1d(0.5, 0.5, 2), 0.625);
+	deepEqual(hilbert_2d_to_1d(0.0, 0.5, 2), 0.75);
+	
+	deepEqual(hilbert_2d_to_1d(0.0, 0.0, 3), 0.0);
+	deepEqual(hilbert_2d_to_1d(0.5, 0.0, 3), 0.25);
+	deepEqual(hilbert_2d_to_1d(0.5, 0.5, 3), 0.65625);
+	deepEqual(hilbert_2d_to_1d(0.0, 0.5, 3), 0.75);
+	
+	deepEqual(hilbert_2d_to_1d(0.0, 0.0, 4), 0.0);
+	deepEqual(hilbert_2d_to_1d(0.5, 0.0, 4), 0.25);
+	deepEqual(hilbert_2d_to_1d(0.5, 0.5, 4), 0.6640625);
+	deepEqual(hilbert_2d_to_1d(0.0, 0.5, 4), 0.75);
+	
+	// default recursion of 15
+	deepEqual(hilbert_2d_to_1d(0.0, 0.0), 0.0);
+	deepEqual(hilbert_2d_to_1d(0.5, 0.0), 0.25);
+	deepEqual(hilbert_2d_to_1d(0.5, 0.5), 0.666666666045785);
+	deepEqual(hilbert_2d_to_1d(0.0, 0.5), 0.75);
+	
+});
+
+
+	
+});
+</script>
+  
+</head>
+<body>
+<div id="qunit">
+<h1 id="qunit-header">QUnit tests</h1>
+<h2 id="qunit-banner"></h2>
+<h2 id="qunit-userAgent"></h2>
+<ol id="qunit-tests"></ol>
+</div>
+</body>
+</html>
