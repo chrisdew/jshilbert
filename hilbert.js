@@ -40,7 +40,7 @@ function hilbert_2d_to_1d(x, y, recursion, curve) {
 	}
 	
 	if (recursion === undefined) {
-		recursion = 15;	// a good number for doubles
+		recursion = 28;	// a good number for doubles
 	}
 	
 	if (recursion <= 0) {

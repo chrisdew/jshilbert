@@ -1,0 +1,12 @@
+JSHilbert
+
+JSHilbert is a little algorithm for computing the distance along a Hilbert curve which corresponds to a 2d coordinate.  This is useful for spatial hashing, amongst other things.
+
+See http://en.wikipedia.org/wiki/Hilbert_curve for more details.
+
+The input coordinates are both within the range 0 <= x < 1 and the output disance is also 0 <= d < 1.
+
+The algorithm takes time in proportion to the amount of recursion required.  (More recursion => more accuracy.)  There is no point in going beyound 28 levels of recursion on doubles, as they only have 56 bits of mantissa and we're squashing two coordinates into one distance, thereby loosing half of the accuracy.
+
+This algorithm may well already be out there, but I hadn't been able to find an example of how to find the 'Hilbert distance' without calculating the Hilbert curve.  (This algorithm does NOT calculate the Hilbert curve.)
+
