@@ -1,3 +1,8 @@
+/*
+ * Copyright 2010 Barricane Technology Ltd., All rights reserved.
+ *
+ * Released under the MIT licence.
+ */
 
 /**
  * Battenburg is simply a 2x2 matrix with non-mutating
