@@ -1,3 +1,5 @@
+**CRITICAL BUG**  Do not use this library until this message is removed.
+
 JSHilbert
 
 JSHilbert is a little algorithm for computing the distance along a Hilbert curve which corresponds to a 2d coordinate.  This is useful for spatial hashing, amongst other things.
